@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const freelancersRoutes = require('./src/routes/freelancers');
+const freelancersRoutes = require('./server_src/routes/freelancers');
 const cors = require('cors');
 const path = require('path');
 
@@ -11,14 +11,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', freelancersRoutes);
-app.use(express.static(path.join(__dirname, '/client/dist/assessment-etiqa-fullstack')));
+app.use(express.static(path.join(__dirname, 'dist/assessment-etiqa-fullstack')));
 
 app.get('', (request, response) => {
     request.send('Backend API running!');
 });
 
 app.get('/*', function(req, res) {
-    res.sendFile('index.html', {root: 'client/dist/assessment-etiqa-fullstack'}
+    res.sendFile('index.html', {root: 'dist/assessment-etiqa-fullstack'}
   );
 });
 
