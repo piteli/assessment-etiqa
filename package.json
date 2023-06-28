@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
     "heroku-postbuild": "export NODE_OPTIONS=--openssl-legacy-provider && cd client && ng build --prod"
   },
   "keywords": [],
