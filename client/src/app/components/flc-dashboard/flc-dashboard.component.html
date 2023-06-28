@@ -1,0 +1,32 @@
+<div class="container p-5">
+    <table class="table">
+        <thead>
+          <tr>
+            <!-- username, email, phone number, skillsets, hobby -->
+            <th scope="col" class="text-center">#</th>
+            <th scope="col" class="text-center">Username</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Phone number</th>
+            <th scope="col" class="text-center">Skillsets</th>
+            <th scope="col" class="text-center">Hobby</th>
+            <th scope="col" class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="justify-content-center" *ngFor="let freelancer of freelancers">
+                <td class="text-center">#</td>
+                <td class="text-center">{{ freelancer.username }}</td>
+                <td class="text-center">{{ freelancer.email }}</td>
+                <td class="text-center">{{ freelancer.phoneNumber }}</td>
+                <td class="text-center">
+                    <span class="badge bg-secondary m-1" *ngFor="let skill of freelancer.skillsets">{{ skill }}</span>
+                </td>
+                <td class="text-center">{{ freelancer.hobby }}</td>
+                <td class="d-flex justify-content-around text-center">
+                    <a class="btn btn-primary" (click)="edit(freelancer)">Edit</a>
+                    <a class="btn btn-danger" (click)="delete(freelancer)">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+      </table>
+</div>
